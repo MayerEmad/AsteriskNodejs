@@ -1,0 +1,22 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/forms.css">
+    <link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+   <%- include('../includes/navigation.ejs') %>
+
+    <main>
+        <form class="product-form" action="/asterisk/<% if (editing) { %>edit-context<% } else { %>add-context<% } %>" method="POST">
+            <div class="form-control">
+                <label for="title">Title</label>
+                <input type="text" name="title" id="title" value="<% if (editing) { %><%= context.title %><% } %>">
+            </div>
+            <% if (editing) { %>
+                <input type="hidden" value="<%= context.id %>" name="contextId">
+            <% } %>
+
+            <button class="btn" type="submit"><% if (editing) { %>Update Context<% } else { %>Add Context<% } %></button>
+        </form>
+    </main>
+<%- include('../includes/end.ejs') %>

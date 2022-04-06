@@ -1,0 +1,34 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/forms.css">
+    <link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+   <%- include('../includes/navigation.ejs') %>
+
+    <main>
+        <form class="product-form" action="/asterisk/<% if (editing) { %>edit-extension<% } else { %>add-extension<% } %>" method="POST">
+            <div class="form-control">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" value="<% if (editing) { %><%= extension.name %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="action">Action</label>
+                <input type="text" name="action" id="action" value="<% if (editing) { %><%= extension.action %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="params">Parameters</label>
+                <input type="params" name="params" id="params" value="<% if (editing) { %><%= extension.params %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="context">Context</label>
+                <input type="context" name="context_id" id="context_id" value="<% if (editing) { %><%= extension.context_id %><% } %>">
+            </div>
+            <% if (editing) { %>
+                <input type="hidden" value="<%= extension.id %>" name="extensionId">
+            <% } %>
+
+            <button class="btn" type="submit"><% if (editing) { %>Update extension<% } else { %>Add extension<% } %></button>
+        </form>
+    </main>
+<%- include('../includes/end.ejs') %>

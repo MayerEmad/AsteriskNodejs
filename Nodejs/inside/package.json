@@ -1,0 +1,22 @@
+{
+  "name": "inside",
+  "version": "1.0.0",
+  "description": "inside library",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js",
+    "start-server": "node app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ari-client": "^2.2.0",
+    "body-parser": "^1.19.2",
+    "colors": "^1.4.0",
+    "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

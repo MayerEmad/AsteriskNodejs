@@ -1,0 +1,34 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/product.css">
+    </head>
+
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+
+            <main>
+                <% if (conts.length > 0) { %>
+                    <div class="grid">
+                        <% for (let context of conts) { %>
+                            <article class="card product-item">
+                                <header class="card__header">
+                                    <h1 class="product__title">
+                                        <%= context.title %>
+                                    </h1>
+                                </header>
+                                
+                                <div class="card__actions">
+                                    <a href="/asterisk/edit-context/<%= context.id %>?edit=true" class="btn">Edit</a>
+                                    <form action="/asterisk/delete-context" method="POST">
+                                        <input type="hidden" value="<%= context.id %>" name="contextId">
+                                        <button class="btn" type="submit">Delete</button>
+                                    </form>
+
+                                </div>
+                            </article>
+                            <% } %>
+                    </div>
+                    <% } else { %>
+                        <h1>No contexts Found!</h1>
+                        <% } %>
+            </main>
+            <%- include('../includes/end.ejs') %>
